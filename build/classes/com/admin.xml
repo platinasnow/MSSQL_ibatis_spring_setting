@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="admin">
+
+	<typeAlias alias="userInfoClass" type="com.UserVo"/>
+	
+	<resultMap id="userInfo" class="userInfoClass">
+		<result property="userId" column="userid"/>
+		<result property="password" column="password"/>
+	</resultMap>
+	
+	<select id="selectUser" resultMap="userInfo" >
+		select * from SKHU_WIKI_USER
+
+	</select>
+	
+</sqlMap>
