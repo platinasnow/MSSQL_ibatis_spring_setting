@@ -25,7 +25,7 @@
 	 
 	<!-- SqlMapClient 설정 -->
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-		<property name="configLocation" value="/WEB-INF/configuration/sqlMapConfig.xml" />
+		<property name="configLocation" value="/com/JUnit/configuration/sqlMapConfig.xml" />
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 
@@ -35,11 +35,15 @@
 		<property name="sqlMapClient" ref="sqlMapClient" />
 	</bean>
 
-	<!-- 파일 업로드용 resolver -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding" value="euc-kr"></property>
-        <property name="maxUploadSize" value="52428800"></property>
+	<!-- 트랜잭션 매니저 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 
+	<!-- Annotation 기반 트랜잭션 설정 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	
 	
 </beans>

@@ -3,7 +3,7 @@
  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="admin">
 
-	<typeAlias alias="userInfoClass" type="com.UserVo"/>
+	<typeAlias alias="userInfoClass" type="com.model.UserVo"/>
 	
 	<resultMap id="userInfo" class="userInfoClass">
 		<result property="userId" column="userid"/>
@@ -11,6 +11,7 @@
 	</resultMap>
 	
 	<select id="selectUser" resultMap="userInfo" >
+		use master
 		select * from SKHU_WIKI_USER
 
 	</select>

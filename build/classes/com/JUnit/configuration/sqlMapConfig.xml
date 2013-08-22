@@ -7,5 +7,4 @@
 		maxTransactions="512" useStatementNamespaces="true" />
 
 	<sqlMap resource="com/admin.xml" />
-	<sqlMap resource="com/imageSql.xml" />
 </sqlMapConfig>
